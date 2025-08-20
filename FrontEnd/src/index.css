@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Google Places Autocomplete Styling */
+.pac-container {
+  @apply rounded-lg border border-gray-300 shadow-lg z-50 font-sans;
+}
+
+.pac-item {
+  @apply px-4 py-3 border-b border-gray-100 cursor-pointer text-sm hover:bg-gray-50 transition-colors;
+}
+
+.pac-item:last-child {
+  @apply border-b-0;
+}
+
+.pac-item-selected {
+  @apply bg-primary-50;
+}
+
+.pac-item-query {
+  @apply font-semibold text-primary-600;
+}
+
+.pac-matched {
+  @apply font-medium;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded hover:bg-gray-500;
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
