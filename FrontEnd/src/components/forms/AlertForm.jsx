@@ -7,6 +7,7 @@ import Card from '../ui/Card';
 import { useAlerts } from '../../hooks/useAlerts';
 import { useGooglePlaces } from '../../hooks/useGooglePlaces';
 import clsx from 'clsx';
+import { logging } from '../../utils/constants';
 
 const initialState = {
   username: '',
@@ -188,6 +189,7 @@ const AlertForm = () => {
       }, 4000);
       
     } catch (err) {
+      logging('Error creating alert:', err);
       dispatch({
         type: 'SET_MESSAGE',
         message: `❌ Failed to create alert: ${err.message}`
@@ -212,7 +214,7 @@ const AlertForm = () => {
     // Handle auto-booking authentication
     if (state.autoBook) {
       try {
-        const response = await fetch('http://localhost:3000/auth/ola/status');
+        const response = await fetch('http://localhost:3001`/auth/ola/status');
         const authData = await response.json();
         
         if (!authData.authenticated) {
@@ -221,7 +223,7 @@ const AlertForm = () => {
             type: 'SET_MESSAGE',
             message: '🔄 Redirecting to authenticate with Ola for auto-booking...'
           });
-          window.location.href = `http://localhost:3000/auth/ola?username=${encodeURIComponent(
+          window.location.href = `http://localhost:3001/auth/ola?username=${encodeURIComponent(
             state.username
           )}`;
           return;
@@ -232,7 +234,7 @@ const AlertForm = () => {
           type: 'SET_MESSAGE',
           message: '🔄 Redirecting to authenticate with Ola for auto-booking...'
         });
-        window.location.href = `http://localhost:3000/auth/ola?username=${encodeURIComponent(
+        window.location.href = `http://localhost:3001/auth/ola?username=${encodeURIComponent(
           state.username
         )}`;
         return;

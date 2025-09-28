@@ -39,18 +39,7 @@ exports.geocodeAddress = async (address) => {
 
 
 
-exports.getETAWithTraffic = async (origin, destination) => {
 
-    const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin.lat},
-    ${origin.lng}&destinations=${destination.lat},${destination.lng}
-    &departure_time=now&key=${process.env.GOOGLE_MAPS_API_KEY}`;
-
-    const res = await axios.get(url);
-    const data = await res.data;
-    const seconds = data.rows[0].elements[0].duration_in_traffic?.value;
-    return Math.ceil(seconds / 60); 
-
-};
 
 
 exports.getETAWithTraffic = async (origin, destination) => {

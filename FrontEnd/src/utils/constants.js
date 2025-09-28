@@ -1,8 +1,13 @@
 // API Configuration
-export const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+export const API_BASE_URL = 'http://localhost:3001';
 
 // Google Maps Configuration
 
+export const logging = (log) => {
+  if (process.env.NODE_ENV !== 'production') {
+    console.log(log);
+  }
+}
 
 // Form validation constants
 export const VALIDATION_RULES = {

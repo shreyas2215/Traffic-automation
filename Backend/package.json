@@ -7,7 +7,7 @@
     "express": "^5.1.0",
     "express-session": "^1.18.2",
     "node-cron": "^4.2.1",
-    "node-fetch": "^3.3.2",
+    "node-fetch": "^2.7.0",
     "textbelt": "^0.0.4",
     "twilio": "^5.8.0"
   }

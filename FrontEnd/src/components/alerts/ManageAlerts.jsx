@@ -82,7 +82,7 @@ const ManageAlerts = () => {
 
   const handleReactivateAlert = async (alertId) => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:3000'}/api/alerts/reactivate`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:3001'}/api/alerts/reactivate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, alertId })
